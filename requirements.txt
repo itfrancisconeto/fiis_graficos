@@ -1,0 +1,7 @@
+beautifulsoup4==4.9.3
+Flask==2.0.1
+Flask-Cors==3.0.10
+urllib3==1.25.8
+simplejson==3.16.0
+lxml==4.6.3
+requests==2.22.0
