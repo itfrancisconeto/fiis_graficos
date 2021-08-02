@@ -1,18 +1,46 @@
 <html>
     <head>
-        <title>Fundos de Investimento Imobiliário</title>
+        <title>Fundos de Investimentos Imobiliários</title>        
     </head>
-    <body>
-            <h1>
-                Fundos de Investimento Imobiliário: <br>
-            </h1>
-                <i>Fontes dos dados:</i> https://www.fundsexplorer.com.br/ranking
-            <h2>
-                Dividend Yield: <br>
-            </h2>
-            é a rentabilidade dos dividendos de uma empresa em relação ao preço de suas ações. <br> <br> <br>                   
-            <b>Gráfico dos Dividend Yield</b> com valores maiores que 1% e menores que 8%: <br>          
-            <img src="{{ url_for('static', filename='grafico') }}">  
+    <body>        
+        {% extends "material/base.html" %}
+        {% block content %}
+      
+        <nav class="blue">
+            <div class="nav-wrapper">
+            <a class="brand-logo">Fundos de Investimentos Imobiliários</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="https://www.fundsexplorer.com.br/ranking" target="_blank">Fonte: Funds Explorer</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="https://www.fundsexplorer.com.br/ranking" target="_blank">Fonte: Funds Explorer</a></li>
+            </ul>
+            </div>
+            <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+                <li class="tab"><a class="active" href="#test1">Dividend Yield</a></li>
+                 <li class="tab"><a href="#test2">Preço Atual</a></li>
+            </ul>
+            </div>
+        </nav>
+        <div id="test1" class="col s12">
+            <br><br>           
+            <p><b> Dividend Yield:</b> é a rentabilidade dos dividendos de uma empresa em relação ao preço de suas ações.</p>
+            <p><b> Gráfico dos Dividend Yield</b> com valores maiores que 1% e menores que 8%:</p>
+            <img src="{{ url_for('static', filename='barplot.png') }}">
+        </div>
+        <div id="test2" class="col s12">
+            <br><br>           
+            <p><b> Preço Atual:</b> é o preço de fechamento da cota do dia anterior.</p>
+            <p><b> Gráfico dos Preços Atuais</b> em R$ dos FII's com Dividend Yield maiores que 1% e menores que 8%:</p>
+            <img src="{{ url_for('static', filename='scatterplot.png') }}">
+        </div>
+
+        {% endblock %}
+        {% block scripts %}
+        {{ super() }}
+        <script type="text/javascript"></script>
+        {% endblock %}
     </body>
 </html>
 
